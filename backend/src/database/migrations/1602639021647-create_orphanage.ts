@@ -47,7 +47,7 @@ export class createOrphanage1602639021647 implements MigrationInterface {
           default: false
         }
       ]
-    }))
+    }));
   }
 
 	public async down(queryRunner: QueryRunner): Promise<void> {

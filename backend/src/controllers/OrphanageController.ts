@@ -27,6 +27,8 @@ export default {
 
 	async create(req: Request, res: Response) {
     const orphanage = req.body as Orphanage;
+    const { open_on_weekends } = req.body; 
+    orphanage.open_on_weekends = open_on_weekends === true || open_on_weekends === 'true';
     
 		const requestImages = req.files as Express.Multer.File[];
 		orphanage.images = requestImages.map((image) => {
@@ -56,6 +58,6 @@ export default {
     
 		await orphanageRepository.save({...orphanage});
 
-		return res.status(201).json(orphanage);
+		return res.status(201).json(orphanageView.render(orphanage));
 	},
 };
