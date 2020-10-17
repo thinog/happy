@@ -5,7 +5,7 @@ export default {
   render(image: Image) {
     return {
       id: image.id,
-      url: `http://localhost:3333/uploads/${encodeURIComponent(image.path)}`
+      url: `http://192.168.15.12:3333/uploads/${encodeURIComponent(image.path)}`
     }
   },
 
